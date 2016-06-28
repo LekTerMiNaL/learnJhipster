@@ -1,0 +1,12 @@
+version: '2'
+services:
+    learnjhipster-postgresql:
+        container_name: learnjhipster-postgresql
+        image: postgres:9.5.1
+        # volumes:
+        #     - ~/volumes/jhipster/learnJhipster/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=learnJhipster
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432

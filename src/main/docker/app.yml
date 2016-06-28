@@ -1,0 +1,21 @@
+version: '2'
+services:
+    learnjhipster-app:
+        image: learnjhipster
+        external_links:
+            - learnjhipster-postgresql:postgresql
+            - learnjhipster-elasticsearch:elasticsearch
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/learnJhipster
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=elasticsearch:9300
+        ports:
+            - 8080:8080
+    learnjhipster-postgresql:
+        extends:
+            file: postgresql.yml
+            service: learnjhipster-postgresql
+    learnjhipster-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: learnjhipster-elasticsearch
